@@ -1,0 +1,160 @@
+* {box-sizing: border-box;}
+
+nav {
+  float: left;
+  width: 15%;
+  height: 100%;
+  background: #b7f5f7;
+  border: 1px solid black;
+  margin-right: 0.2%
+
+}
+
+nav ul {
+  list-style-type: none;
+  padding:0;
+}
+
+nav li {
+  padding-bottom: 5%;
+  padding-left: 2%;
+  font-size: 1vw;
+}
+
+.article ul {
+  list-style-type: none;
+}
+
+.article li{
+  padding-bottom: 1%;
+}
+
+ul a {
+  text-decoration: none;
+}
+
+.page-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.article {
+  background-color: white;
+  overflow:auto;
+  font-size: 1.1vw;
+  height: 100%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+  width:100%;
+  height: 10%;
+  background-color: white;
+  justify-content: center;
+  padding-left: 40%;
+  font-size: 2vh;
+  margin-bottom: 0.5%;
+  color: black;
+  border: 1px solid black;
+}
+
+.logged-user {
+  float:right;
+  overflow: auto;
+  padding-top: 0%;
+  top: 0;
+  padding-right: 1%;
+}
+
+.site-name {
+  padding-top:1%;
+}
+
+.footer {
+  height: 5%;
+  background-color: white;
+  text-align: center;
+  color: black;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border: 1px solid black;
+  font-size: 2vh;
+}
+
+.page-content {
+  height: 75%;
+  width: 100%;
+  position: absolute;
+}
+
+img {
+  height:1%;
+  width:9%;
+  float:left;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.nav-1 {
+  height:7%;
+  width:100%;
+  margin-bottom: 0.5%;
+  text-align: center;
+}
+
+.nav-horizontal {
+  width: 100%;
+  height:100%;
+  background: gray;
+}
+
+.nav-horizontal ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-horizontal ul a{
+  text-decoration: none;
+}
+
+.nav-horizontal ul li{
+  display: inline;
+}
+
+ul li ul a {
+  text-decoration: underline;
+}
+
+.image-table {
+  width:60%;
+  height:60%;
+  border:0;
+}
+
+.image-table td {
+  height: 30%;
+  width:30%;
+  text-align: left;
+}
+
+.image-table tr {
+  height: 30%;
+  width:30%;
+  text-align: left;
+}
+
+.t-image {
+  height:40%;
+  width:60%;
+}
