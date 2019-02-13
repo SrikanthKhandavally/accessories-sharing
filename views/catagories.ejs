@@ -5,52 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Content Sharing - Accessories  </title>
 
-    <link rel="stylesheet" type="text/css" href="static/catagories-style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/catagories-style.css">
   </head>
   <body>
-    <header class="header">
-      <div class="clearfix">
-        <p class="logged-user">not signed in</p>
-        <img alt="logo" src="static/gif-logo.gif" />
-        <h2>Accessories Sharing</h2>
-      </div>
-    </header>
+    <% include header.ejs %>
 
     <div class="nav-1">
-      <nav class="nav-horizontal">
-        <ul>
-          <li><a href="#">Signin</a></li>
-          <li><strong>|</strong></li>
-          <li><a href="my-items.html">My Recepies</a></li>
-          <li><strong>|</strong></li>
-          <li><a href="#">Cart</a></li>
-        </ul>
-    </nav>
+      <% include user-navigation.ejs %>
     </div>
 
     <div class="page-content">
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="catagories.html">Categories</a></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </nav>
+        <% include site-navigation.ejs %>
 
       <div class="article">
         <h4> Electric Applicances </h4>
         <table class="image-table">
           <tr>
             <td>
-            <a href="item-details.html"><img class="t-image" src="static/microwave.png" alt="description here" /></a>
+            <a href="/item-details"><img class="t-image" src="../assets/images/microwave.png" alt="description here" /></a>
             </td>
             <td>
-            <a href="item-details.html"><img class="t-image" src="static/bread-toast.png" alt="description here" /></a>
+            <a href="/item-details"><img class="t-image" src="../assets/images/bread-toast.png" alt="description here" /></a>
             </td>
             <td>
-            <a href="item-details.html"><img class="t-image" src="static/vaccum-cleaner.png" alt="description here" /></a>
+            <a href="/item-details"><img class="t-image" src="../assets/images/vaccum-cleaner.png" alt="description here" /></a>
             </td>
           </tr>
           <tr>
@@ -71,13 +49,13 @@
         <table class="image-table">
           <tr>
             <td>
-            <a href="item-details.html"><img class="t-image" src="static/chair.png" alt="description here" /></a>
+            <a href="/item-details"><img class="t-image" src="../assets/images/chair.png" alt="description here" /></a>
             </td>
             <td>
-            <a href="item-details.html"><img class="t-image" src="static/table.png" alt="description here" /></a>
+            <a href="/item-details"><img class="t-image" src="../assets/images/table.png" alt="description here" /></a>
             </td>
             <td>
-            <a href="item-details.html"><img class="t-image" src="static/dining-table.png" alt="description here" /></a>
+            <a href="/item-details"><img class="t-image" src="../assets/images/dining-table.png" alt="description here" /></a>
             </td>
           </tr>
           <tr>
@@ -95,9 +73,7 @@
       </div>
     </div>
 
-    <footer class="footer">
-      <p>Accessories Sharing</p>
-    </footer>
+    <% include footer.ejs %>
 
   </body>
 </html>

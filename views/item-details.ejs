@@ -5,39 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Content Sharing - Accessories  </title>
 
-    <link rel="stylesheet" type="text/css" href="static/item-details-style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/item-details-style.css">
   </head>
   <body>
-    <header class="header">
-      <div class="clearfix">
-        <p class="logged-user">not signed in</p>
-        <img alt="logo" src="static/gif-logo.gif" />
-        <h2>Accessories Sharing</h2>
-      </div>
-    </header>
+    <% include header.ejs %>
 
     <div class="nav-1">
-      <nav class="nav-horizontal">
-        <ul>
-          <li><a href="#">Signin</a></li>
-          <li><strong>|</strong></li>
-          <li><a href="my-items.html">My Recepies</a></li>
-          <li><strong>|</strong></li>
-          <li><a href="#">Cart</a></li>
-        </ul>
-    </nav>
+      <% include user-navigation.ejs %>
     </div>
 
     <div class="page-content">
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="catagories.html">Categories</a></li>
-          <li><a href="#">Store</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </nav>
+      <% include site-navigation.ejs %>
 
       <div class="article">
         <ul class="breadcrumb">
@@ -48,27 +26,27 @@
           <li>I<i>tem</i></li>
         </ul>
         <div class="image-container">
-          <img alt="item image" class="item-image" src="static/microwave.png" />
+          <img alt="item image" class="item-image" src="../assets/images/microwave.png" />
           <div class="image-side-description">
             <p><strong>Microwave Oven</strong></p>
             <p> Electric Applicances </p>
             <ul class="ratings-bar">
-              <li> <img alt="star" class="ratings-image" src="static/star-image.png" /> </li>
-              <li> <img alt="star" class="ratings-image" src="static/star-image.png" /> </li>
-              <li> <img alt="star" class="ratings-image" src="static/star-image.png" /> </li>
-              <li> <img alt="star" class="ratings-image" src="static/star-image.png" /> </li>
-              <li> <img alt="star" class="ratings-image" src="static/star-image.png" /> </li>
+              <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
+              <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
+              <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
+              <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
+              <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
             </ul>
         </div>
         </div>
         <div class="image-container-buttons">
-          <form action="my-items.html" method="post">
+          <form action="/my-items">
             <button class="button" type= "submit" >
-              <img alt="heart-image" class="button-image" src="static/like.png">
+              <img alt="heart-image" class="button-image" src="../assets/images/like.png">
               Save it
             </button>
             <button class="button" type="button" >
-              <img alt="star-image" class="button-image" src="static/fav.png">
+              <img alt="star-image" class="button-image" src="../assets/images/fav.png">
               Rate it
             </button>
           </form>
@@ -95,9 +73,7 @@
     </div>
   </div>
 
-    <footer class="footer">
-      <p>Footer</p>
-    </footer>
+    <% include footer.ejs %>
 
   </body>
 </html>
