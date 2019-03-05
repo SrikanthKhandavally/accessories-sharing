@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Content Sharing - Accessories  </title>
+
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/feedback-style.css">
+  </head>
+  <body>
+    <% include header.ejs %>
+
+    <div class="nav-1">
+      <% include user-navigation.ejs %>
+    </div>
+
+    <div class="page-content">
+      <% include site-navigation.ejs %>
+
+      <div class="article">
+        <ul class="breadcrumb">
+          <li><a href="/catagories">H<i>ome</i></a></li>
+          <li>></li>
+          <li><a href="/catagories">C<i>atagories</i></a></li>
+          <li>></li>
+          <li><i><%= item.name %></i></li>
+        </ul>
+        <div class="image-container">
+          <img alt="item image" class="item-image" src="<%= item.imageUrl %>" />
+          <div class="image-side-description">
+            <p><strong><%= item.name %></strong></p>
+            <p><%= item.category %></p>
+            <ul class="ratings-bar">
+              <% for(var i=0; i < item.rating; i++) { %>
+                 <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
+               <% } %>
+            </ul>
+            <br>
+            <p><%= item.description %></p>
+            <div class="feedback-actions">
+              <div class = "feedback-rating">
+                <p> Rating </p>
+                <select>
+                  <option value="1" >1 Star</option>
+                  <option value="2">2 Star</option>
+                  <option value="3">3 Star</option>
+                  <option value="4">4 Star</option>
+                  <option value="5">5 Star</option>
+                </select>
+                <button class="button" type="submit" onclick = "location.href = '/my-items';" name="button">Confirm Rating</button>
+              </div>
+              <br>
+              <form class="" action="/my-items" method="get">
+                <button class="made-it-button" type= "submit" >
+                  I tested it
+                  <img alt="heart-image" class="button-image" src="../assets/images/like.png">
+                </button>
+              </form>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+    <% include footer.ejs %>
+
+  </body>
+</html>

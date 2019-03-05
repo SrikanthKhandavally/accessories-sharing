@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Content Sharing - Accessories  </title>
+
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/item-details-style.css">
+  </head>
+  <body>
+    <% include header.ejs %>
+
+    <div class="nav-1">
+      <% include user-navigation.ejs %>
+    </div>
+
+    <div class="page-content">
+      <% include site-navigation.ejs %>
+
+      <div class="article">
+        <ul class="breadcrumb">
+          <li><a href="/catagories">H<i>ome</i></a></li>
+          <li>></li>
+          <li><a href="/catagories">C<i>atagories</i></a></li>
+          <li>></li>
+          <li><i><%= item.name %></i></li>
+        </ul>
+        <div class="image-container">
+          <img alt="item image" class="item-image" src="<%= item.imageUrl %>" />
+          <div class="image-side-description">
+            <p><strong><%= item.name %></strong></p>
+            <p><%= item.category %></p>
+            <ul class="ratings-bar">
+              <% for(var i=0; i < item.rating; i++) { %>
+                 <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
+               <% } %>
+            </ul>
+        </div>
+        </div>
+        <div class="image-container-buttons">
+          <form>
+            <button formaction="/my-items" class="button" type= "submit" >
+              <img alt="heart-image" class="button-image" src="../assets/images/like.png">
+              Save it
+            </button>
+            <button class="button" type="submit" formaction="/feedback">
+              <img alt="star-image" class="button-image" src="../assets/images/fav.png">
+              Rate it
+            </button>
+            <input value="<%= item.code %>" name="item-code" type="hidden" />
+          </form>
+          <p><%= item.description %></p>
+      </div>
+      <h4>Specifications</h4>
+      <ul class="item-description">
+        <% specifications = item.specifications.split('\n');
+        specifications.forEach(i => { %>
+          <li class="list-item"><%= i %></li>
+        <% }); %>
+      </ul>
+      <h4>Directions</h4>
+      <ul class="item-description">
+        <% specifications = item.directions.split('\n');
+        specifications.forEach(i => { %>
+          <li class="list-item"><%= i %></li>
+        <% }); %>
+      </ul>
+
+    </div>
+  </div>
+
+    <% include footer.ejs %>
+
+  </body>
+</html>

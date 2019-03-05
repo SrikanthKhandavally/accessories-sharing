@@ -1,0 +1,21 @@
+{
+  "name": "nbad-project",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://SivakumarVayyeti@bitbucket.org/SivakumarVayyeti/nbad-project.git"
+  },
+  "author": "siva kumar reddy vayyeti",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/SivakumarVayyeti/nbad-project#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  }
+}
