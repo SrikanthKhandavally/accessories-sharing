@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Content Sharing - Accessories  </title>
 
-    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/item-details-style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/feedback-style.css">
   </head>
   <body>
     <% include header.ejs %>
@@ -35,37 +35,30 @@
                  <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
                <% } %>
             </ul>
+            <br>
+            <p><%= item.description %></p>
+            <div class="feedback-actions">
+              <div class = "feedback-rating">
+                <p> Rating </p>
+                <select>
+                  <option value="1" >1 Star</option>
+                  <option value="2">2 Star</option>
+                  <option value="3">3 Star</option>
+                  <option value="4">4 Star</option>
+                  <option value="5">5 Star</option>
+                </select>
+                <button class="button" type="submit" onclick = "location.href = '/my-items';" name="button">Confirm Rating</button>
+              </div>
+              <br>
+              <form class="" action="/my-items" method="get">
+                <button class="made-it-button" type= "submit" >
+                  I tested it
+                  <img alt="heart-image" class="button-image" src="../assets/images/like.png">
+                </button>
+              </form>
+          </div>
         </div>
         </div>
-        <div class="image-container-buttons">
-          <form>
-            <button formaction="/my-items" class="button" type= "submit" >
-              <img alt="heart-image" class="button-image" src="../assets/images/like.png">
-              Save it
-            </button>
-            <button class="button" type="submit" formaction="/feedback">
-              <img alt="star-image" class="button-image" src="../assets/images/fav.png">
-              Rate it
-            </button>
-            <input value="<%= item.code %>" name="item-code" type="hidden" />
-          </form>
-          <p><%= item.description %></p>
-      </div>
-      <h4>Specifications</h4>
-      <ul class="item-description">
-        <% specifications = item.specifications.split('\n');
-        specifications.forEach(i => { %>
-          <li class="list-item"><%= i %></li>
-        <% }); %>
-      </ul>
-      <h4>Directions</h4>
-      <ul class="item-description">
-        <% specifications = item.directions.split('\n');
-        specifications.forEach(i => { %>
-          <li class="list-item"><%= i %></li>
-        <% }); %>
-      </ul>
-
     </div>
   </div>
 
