@@ -30,23 +30,22 @@
           <div class="image-side-description">
             <p><strong><%= item.name %></strong></p>
             <p><%= item.category %></p>
-            <ul class="ratings-bar">
-              <% for(var i=0; i < item.rating; i++) { %>
-                 <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
-               <% } %>
-            </ul>
         </div>
         </div>
         <div class="image-container-buttons">
           <form>
-            <button formaction="/my-items" class="button" type= "submit" >
-              <img alt="heart-image" class="button-image" src="../assets/images/like.png">
-              Save it
-            </button>
-            <button class="button" type="submit" formaction="/feedback">
-              <img alt="star-image" class="button-image" src="../assets/images/fav.png">
-              Rate it
-            </button>
+            <%if (isItemSaved === 0) {%>
+              <button formaction="/profile/save" class="button" type= "submit" >
+                <img alt="heart-image" class="button-image" src="../assets/images/like.png">
+                Save it
+              </button>
+            <%}%>
+            <%if (isItemSaved === 1) {%>
+              <button class="button" type="submit" formaction="/feedback">
+                <img alt="star-image" class="button-image" src="../assets/images/fav.png">
+                Rate it
+              </button>
+            <%}%>
             <input value="<%= item.code %>" name="item-code" type="hidden" />
           </form>
           <p><%= item.description %></p>

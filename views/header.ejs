@@ -1,6 +1,7 @@
 <header class="header">
   <div class="clearfix">
-    <p class="logged-user">not signed in</p>
+    <%if (typeof user === "undefined") {%> <p class="logged-user">not signed in</p> <%}%>
+    <%if (typeof user !== "undefined") {%> <p class="logged-user"><%= user.id %></p> <%}%>
     <img alt="logo" src="../assets/images/gif-logo.gif" />
     <h2>Accessories Sharing</h2>
   </div>

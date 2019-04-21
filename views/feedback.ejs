@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Content Sharing - Accessories  </title>
-
     <link rel="stylesheet" type="text/css" href="../assets/stylesheets/feedback-style.css">
   </head>
   <body>
@@ -30,27 +29,40 @@
           <div class="image-side-description">
             <p><strong><%= item.name %></strong></p>
             <p><%= item.category %></p>
-            <ul class="ratings-bar">
+            <!-- <ul class="ratings-bar">
               <% for(var i=0; i < item.rating; i++) { %>
                  <li> <img alt="star" class="ratings-image" src="../assets/images/star-image.png" /> </li>
                <% } %>
-            </ul>
-            <br>
+            </ul> -->
+            <!-- <br> -->
             <p><%= item.description %></p>
             <div class="feedback-actions">
               <div class = "feedback-rating">
-                <p> Rating </p>
-                <select>
-                  <option value="1" >1 Star</option>
-                  <option value="2">2 Star</option>
-                  <option value="3">3 Star</option>
-                  <option value="4">4 Star</option>
-                  <option value="5">5 Star</option>
-                </select>
-                <button class="button" type="submit" onclick = "location.href = '/my-items';" name="button">Confirm Rating</button>
+                <form action="/profile/update-rating" method="post">
+                  <p> Rating </p>
+                  <select name="user-rating">
+                    <%if (item.rating === 1) {%> <option value="1" selected>1 Star</option>  <%}
+                    else {%> <option value="1">1 Star</option>  <%} %>
+                    <%if (item.rating === 2) {%> <option value="2" selected>2 Star</option>  <%}
+                    else {%> <option value="2">2 Star</option>  <%} %>
+                    <%if (item.rating === 3) {%> <option value="3" selected>3 Star</option>  <%}
+                    else {%> <option value="3">3 Star</option>  <%} %>
+                    <%if (item.rating === 4) {%> <option value="4" selected>4 Star</option>  <%}
+                    else {%> <option value="4">4 Star</option>  <%} %>
+                    <%if (item.rating === 5) {%> <option value="5" selected>5 Star</option>  <%}
+                    else {%> <option value="5">5 Star</option>  <%} %>
+                  </select>
+                  <input type="hidden" name="item-code" value="<%= item.code %>" />
+                  <button class="button" type="submit" name="button">Confirm Rating</button>
+              </form>
               </div>
               <br>
-              <form class="" action="/my-items" method="get">
+              <form action="/profile/update-tested" method="post">
+                <input type="hidden" name="item-code" value="<%= item.code %>" />
+                <%if (isTested === "true") {%> <input type="radio" name="tested-it" value="true" checked> Yes  <%}
+                else {%> <input type="radio" name="tested-it" value="true"> Yes  <%} %>
+                <%if (isTested === "false") {%> <input type="radio" name="tested-it" value="false" checked> No  <%}
+                else {%> <input type="radio" name="tested-it" value="false"> No  <%} %>
                 <button class="made-it-button" type= "submit" >
                   I tested it
                   <img alt="heart-image" class="button-image" src="../assets/images/like.png">
