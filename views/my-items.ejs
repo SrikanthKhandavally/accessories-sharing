@@ -29,61 +29,42 @@
             <th></th>
             <th></th>
           </tr>
+          <% for(let i=0;i<data.length;i++){ %>
           <tr>
             <td>
               <ul class="my-item-tag">
-                <li><img  alt="my tag image" class="my-tag" src="../assets/images/my-tag.png" /></li>
-                <li><a href=""> Microwave Oven </a></li>
+                <%if (data[i].testedIt === "true") {%>  <li><img  alt="my tag image" class="my-tag" src="../assets/images/my-tag.png" /></li>  <%}%>
+                <li><a href=""> <%= data[i].item %> </a></li>
               </ul>
             </td>
-            <td>Electric Applicances</td>
+            <td><%= data[i].category %></td>
             <td>
               <ul class="ratings-bar">
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
+                <% let stars = parseInt(data[i].rating);
+                  for(let i=0; i<stars ; i++) {
+                %>
+                   <li> <img alt="star" class="star" src="../assets/images/star-image.png" /> </li>
+                 <% } %>
               </ul>
             </td>
             <td>
-              <input type="checkbox" class="tested-checkbox" name="tested" value="tested" checked>
+              <%if (data[i].testedIt === "true") {%> <input type="checkbox" class="tested-checkbox" name="tested" value="tested" checked  readonly> <%}%>
+              <%if (data[i].testedIt === "false") {%> <input type="checkbox" class="tested-checkbox" name="tested" value="tested" readonly> <%}%>
             </td>
             <td>
-              <form action="/item-details">
+              <form action="/feedback">
+                <input type="hidden" name="item-code" value="<%= data[i].code %>" />
                 <button class="button" type= "submit" >Update</button>
               </form>
             </td>
             <td>
-              <button class="button" type= "button" >Delete</button>
-            </td>
-          </tr>
-          <tr class="last-row">
-            <td>
-              <ul class="my-item-tag">
-                <li><img  alt="my tag image" class="my-tag-hidden" src="../assets/images/my-tag.png" /></li>
-                <li><a href=""> Study Table </a></li>
-              </ul>
-            </td>
-            <td>Furniture</td>
-            <td>
-              <ul class="ratings-bar">
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-                <li> <img alt="star image" class="star" src="../assets/images/star-image.png" /> </li>
-              </ul>
-            </td>
-            <td></td>
-            <td>
-              <form action="/item-details">
-                <button class="button" type= "submit" >Update</button>
+              <form action="/profile/delete" method="post">
+                <input type="hidden" name="item-code" value="<%= data[i].code %>" />
+                <button class="button" type="submit" >Delete</button>
               </form>
             </td>
-            <td>
-              <button class="button" type= "button" >Delete</button>
-            </td>
           </tr>
+          <% } %>
         </table>
       </div>
       <footer class="footer-two">

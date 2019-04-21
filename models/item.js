@@ -1,19 +1,22 @@
-class Item {
+let mongoose = require('mongoose');
 
-  constructor(code, name, category, rating, image, description, directions, specifications){
-    this.code = code;
-    this.name = name;
-    this.category = category;
-    this.description = description;
-    this.rating = rating;
-    this.image = image;
-    this.directions = directions;
-    this.specifications = specifications;
-  }
+mongoose.connect('mongodb://localhost:27017/accessories', {useNewUrlParser: true});
+let Schema = mongoose.Schema;
 
-  getImageURL(){
-    return "../assets/images/" + this.image;
-  }
-}
+let Item =  new Schema({
+  code: {type:String, required:true},
+  name: {type:String, required:true},
+  category: {type:String, required:true},
+  rating: {type:String, required:true},
+  image: {type:String, required:true},
+  description: {type:String, required:true},
+  directions: String,
+  specifications: String,
+}, {collection: 'items'});
 
-module.exports = Item;
+
+let itemData = mongoose.model('items', Item);
+
+module.exports.allItemsData = function() {
+  return itemData.find();
+};
