@@ -133,3 +133,11 @@ img {
 .nav-horizontal ul li{
   display: inline;
 }
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+}

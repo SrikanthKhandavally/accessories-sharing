@@ -48,8 +48,8 @@
               </ul>
             </td>
             <td>
-              <%if (data[i].testedIt === "true") {%> <input type="checkbox" class="tested-checkbox" name="tested" value="tested" checked  readonly> <%}%>
-              <%if (data[i].testedIt === "false") {%> <input type="checkbox" class="tested-checkbox" name="tested" value="tested" readonly> <%}%>
+              <%if (data[i].testedIt === "true") {%> <input type="checkbox" class="tested-checkbox" name="tested" value="tested" checked  onclick="this.checked=!this.checked;"> <%}%>
+              <%if (data[i].testedIt === "false") {%> <input type="checkbox" class="tested-checkbox" name="tested" value="tested" onclick="this.checked=!this.checked;"> <%}%>
             </td>
             <td>
               <form action="/feedback">

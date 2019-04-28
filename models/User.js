@@ -7,11 +7,16 @@ let User = new Schema({
   id: {type:String, required:true},
   firstName: {type:String, required:true},
   lastName: {type:String, required:true},
-  email: {type:String, required:true}
+  email: {type:String, required:true},
+  password: {type:String, required:true}
 }, {collections: 'users'});
 
 let userData = mongoose.model('users', User);
 
 module.exports.getUsers = function(){
   return userData.find();
+};
+
+module.exports.getUserByCredentials = function(username, password){
+  return userData.find({email: username, password: password});
 };
