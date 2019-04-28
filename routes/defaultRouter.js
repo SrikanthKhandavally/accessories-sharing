@@ -3,6 +3,9 @@ const importItemUtility = require('../utility/itemDataStore');
 const UserItem = require('../models/UserItem');
 const bodyParser = require('body-parser');
 
+const { body, check, validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
+
 let urlEncodedParser = bodyParser.urlencoded({extended: false});
 const getItems = importItemUtility.getItems;
 const getItem = importItemUtility.getItem;
@@ -24,11 +27,15 @@ router.get('/catagories', (request, response) => {
   response.render('catagories.ejs', {"catalogData": data});
 });
 
-router.get('/item-details', (request, response) => {
+router.get('/item-details', [
+check('item-code').exists(),
+check('item-code').isLength({ min:4, max:4 }),
+], (request, response) => {
   const requestParams = request.query;
   itemcode = requestParams['item-code'];
   const itemObj = getItem(itemcode);
-  if(typeof itemObj === "undefined" || typeof request.session.user === "undefined"){
+  const errors = validationResult(request);
+  if(!errors.isEmpty() || typeof itemObj === "undefined" || typeof request.session.user === "undefined"){
     response.redirect('/catagories');
   }
   else{
@@ -45,12 +52,16 @@ router.get('/item-details', (request, response) => {
   }
 });
 
-router.get('/feedback', (request, response) => {
+router.get('/feedback', [
+check('item-code').exists(),
+check('item-code').isLength({ min:4, max:4 }),
+], (request, response) => {
+  const errors = validationResult(request);
   const requestParams = request.query;
   itemcode = requestParams['item-code'];
   let itemObj = getItem(itemcode);
 
-  if(typeof itemObj === "undefined"){
+  if(!errors.isEmpty() || typeof itemObj === "undefined"){
     response.redirect('/profile/my-items');
   }
 

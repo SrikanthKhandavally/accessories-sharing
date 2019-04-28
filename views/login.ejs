@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Content Sharing - Accessories  </title>
+
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/index-style.css">
+  </head>
+  <body>
+    <% include header.ejs %>
+
+    <div class="nav-1">
+      <% include user-navigation.ejs %>
+    </div>
+
+    <div class="page-content">
+      <% include site-navigation.ejs %>
+
+      <div class="article">
+        <div class="content">
+          <p>Welcome to <strong>Accessories Sharing</strong> site!</p>
+          <p>Please enter your Username and Password to Signin</p>
+        </div>
+        <% if(error != 0 && error == 1){ %>
+          <p class="error"> username or password is incorrect </p>
+        <% } %>
+        <% if(error != 0 && error == 2){ %>
+          <p class="error"> Invalid data in the username or password fields  </p>
+          <p class="error">username must be email and password should be minimum of 5 characters</p>
+        <% } %>
+        <div>
+          <form action="/user/authentication" method="post">
+            <div class="form-field">
+              <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-field">
+              <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-field">
+              <button type="submit" name="signin-button">Signin</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <% include footer.ejs %>
+
+  </body>
+</html>
